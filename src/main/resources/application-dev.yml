@@ -2,12 +2,13 @@ spring:
   application:
     name: User Service
   datasource:
-    url: jdbc:mysql://localhost:3306/user_service?createDatabaseIfNotExist=true
-    username: root
+    url: jdbc:postgresql://localhost:5432/user_service
+    username: postgres
     password: root
 
+
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
     properties:
       hibernate:

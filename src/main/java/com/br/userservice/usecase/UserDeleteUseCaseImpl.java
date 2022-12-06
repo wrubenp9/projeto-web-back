@@ -5,6 +5,8 @@ import com.br.userservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class UserDeleteUseCaseImpl implements UserDeleteUseCase {
@@ -12,7 +14,7 @@ public class UserDeleteUseCaseImpl implements UserDeleteUseCase {
     private final UserRepository userRepository;
 
     @Override
-    public void execute(Integer id) {
+    public void execute(UUID id) {
         var user = userRepository.findById(id);
         try {
             if (user.isPresent()) {

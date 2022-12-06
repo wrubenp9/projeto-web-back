@@ -5,5 +5,5 @@ import com.br.userservice.controller.request.UserRequest;
 import java.util.UUID;
 
 public interface UserUpdateUseCase {
-    void execute(Integer idUserLogin, Integer id, UserRequest request);
+    void execute(UUID idUserLogin, UUID id, UserRequest request);
 }

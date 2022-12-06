@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -17,7 +18,7 @@ public class UserUpdateUseCaseImpl implements UserUpdateUseCase {
 
 
     @Override
-    public void execute(Integer idUserLogin, Integer id, UserRequest request) {
+    public void execute(UUID idUserLogin, UUID id, UserRequest request) {
 
         Optional<User> user = userRepository.findById(id);
         Optional<User> userLogin = userRepository.findById(idUserLogin);

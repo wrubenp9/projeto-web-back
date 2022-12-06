@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
@@ -37,7 +38,7 @@ public class UserController {
     }
 
     @PutMapping("/user/{id}/update")
-    public void userCreate(@PathVariable Integer id, @RequestParam Integer idUserLogin, @RequestBody UserRequest request) {
+    public void userCreate(@PathVariable UUID id, @RequestParam UUID idUserLogin, @RequestBody UserRequest request) {
         userUpdateUseCase.execute(idUserLogin, id, request);
     }
 
