@@ -18,7 +18,6 @@ public class UserCreateUseCaseImpl implements UserCreateUseCase {
     public void execute(UserRequest request) {
         Optional<User> user = userRepository.findByEmail(request.getEmail());
         try {
-
             if (user.isEmpty()) {
                 User userEntity = new User();
 

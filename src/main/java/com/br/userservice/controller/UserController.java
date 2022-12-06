@@ -5,10 +5,7 @@ import com.br.userservice.controller.request.UserLoginRequest;
 import com.br.userservice.controller.request.UserRequest;
 import com.br.userservice.model.User;
 import com.br.userservice.repository.UserRepository;
-import com.br.userservice.usecase.UserCreateUseCaseImpl;
-import com.br.userservice.usecase.UserLoginImpl;
-import com.br.userservice.usecase.UserSearchUseCaseImpl;
-import com.br.userservice.usecase.UserUpdateUseCaseImpl;
+import com.br.userservice.usecase.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +22,7 @@ public class UserController {
     private final UserCreateUseCaseImpl userCreateUseCase;
     private final UserUpdateUseCaseImpl userUpdateUseCase;
     private final UserSearchUseCaseImpl userSearchUseCase;
+    private final UserDeleteUseCaseImpl userDeleteUseCase;
     private final UserLoginImpl userLogin;
 
     @GetMapping("/user/all")
@@ -38,8 +36,13 @@ public class UserController {
     }
 
     @PutMapping("/user/{id}/update")
-    public void userCreate(@PathVariable UUID id, @RequestParam UUID idUserLogin, @RequestBody UserRequest request) {
+    public void userUpdate(@PathVariable UUID id, @RequestParam UUID idUserLogin, @RequestBody UserRequest request) {
         userUpdateUseCase.execute(idUserLogin, id, request);
+    }
+
+    @DeleteMapping("/user/delete")
+    public void userDelete(@RequestParam UUID id){
+        userDeleteUseCase.execute(id);
     }
 
     @PostMapping("/login")
