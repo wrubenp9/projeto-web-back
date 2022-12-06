@@ -21,8 +21,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
     private final UserCreateUseCaseImpl userCreateUseCase;
     private final UserUpdateUseCaseImpl userUpdateUseCase;
     private final UserSearchUseCaseImpl userSearchUseCase;
@@ -31,11 +29,6 @@ public class UserController {
     @GetMapping("/user/all")
     public List<UserDto> user() {
         return userSearchUseCase.findAll();
-    }
-
-    @GetMapping("/user/one")
-    public Optional<User> userOne(@RequestParam Integer id) {
-        return userRepository.findById(id);
     }
 
     @PostMapping("/user/create")
