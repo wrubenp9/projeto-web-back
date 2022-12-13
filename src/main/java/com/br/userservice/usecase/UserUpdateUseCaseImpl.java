@@ -27,13 +27,12 @@ public class UserUpdateUseCaseImpl implements UserUpdateUseCase {
             if (user.isPresent() && userLogin.isPresent()) {
 
                 var userEntity = user.get();
-                if (Objects.equals(userLogin.get().getTipo(), "admin")) {
+                if (Objects.equals(userLogin.get().getType(), "admin")) {
                     userEntity.setNome(request.getNome());
                     userEntity.setSobrenome(request.getSobrenome());
                     userEntity.setEmail(request.getEmail());
                     userEntity.setSenha(request.getSenha());
-                    userEntity.setTipo(request.getTipo());
-
+                    userEntity.setType(request.getType());
                 } else {
                     userEntity.setNome(request.getNome());
                     userEntity.setSobrenome(request.getSobrenome());

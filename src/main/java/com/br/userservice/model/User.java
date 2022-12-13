@@ -24,6 +24,6 @@ public class User {
     @Column(nullable = false)
     private String senha;
     @Column(nullable = false)
-    private String tipo;
+    private String type;
 
 }

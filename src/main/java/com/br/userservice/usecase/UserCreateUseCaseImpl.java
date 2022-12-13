@@ -25,7 +25,7 @@ public class UserCreateUseCaseImpl implements UserCreateUseCase {
                 userEntity.setSobrenome(request.getSobrenome());
                 userEntity.setEmail(request.getEmail());
                 userEntity.setSenha(request.getSenha());
-                userEntity.setTipo(request.getTipo());
+                userEntity.setType(request.getType());
 
                 userRepository.save(userEntity);
             }

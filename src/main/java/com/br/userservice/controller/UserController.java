@@ -25,8 +25,13 @@ public class UserController {
     private final UserDeleteUseCaseImpl userDeleteUseCase;
     private final UserLoginImpl userLogin;
 
+    @GetMapping("/user/{id}")
+    public UserDto user(@PathVariable UUID id) {
+        return userSearchUseCase.findById(id);
+    }
+
     @GetMapping("/user/all")
-    public List<UserDto> user() {
+    public List<UserDto> userAll() {
         return userSearchUseCase.findAll();
     }
 

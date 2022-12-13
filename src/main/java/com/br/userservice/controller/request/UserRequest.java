@@ -10,5 +10,5 @@ public class UserRequest {
     private String sobrenome;
     private String email;
     private String senha;
-    private String tipo;
+    private String type;
 }
