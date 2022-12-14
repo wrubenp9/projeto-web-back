@@ -18,26 +18,20 @@ public class UserUpdateUseCaseImpl implements UserUpdateUseCase {
 
 
     @Override
-    public void execute(UUID idUserLogin, UUID id, UserRequest request) {
+    public void execute(UUID id, UserRequest request) {
 
         Optional<User> user = userRepository.findById(id);
-        Optional<User> userLogin = userRepository.findById(idUserLogin);
 
         try {
-            if (user.isPresent() && userLogin.isPresent()) {
+            if (user.isPresent()) {
 
                 var userEntity = user.get();
-                if (Objects.equals(userLogin.get().getType(), "admin")) {
-                    userEntity.setNome(request.getNome());
-                    userEntity.setSobrenome(request.getSobrenome());
-                    userEntity.setEmail(request.getEmail());
-                    userEntity.setSenha(request.getSenha());
-                    userEntity.setType(request.getType());
-                } else {
-                    userEntity.setNome(request.getNome());
-                    userEntity.setSobrenome(request.getSobrenome());
-                    userEntity.setSenha(request.getSenha());
-                }
+
+                userEntity.setNome(request.getNome());
+                userEntity.setSobrenome(request.getSobrenome());
+                userEntity.setEmail(request.getEmail());
+                userEntity.setSenha(request.getSenha());
+                userEntity.setType(request.getType());
 
                 userRepository.save(userEntity);
             }
